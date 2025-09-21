@@ -3,14 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Test HTML Sayfası</title>
+    <style>
+        nav { margin-bottom: 20px; }
+        .page { display: none; }
+        .active { display: block; }
+    </style>
 </head>
 <body>
-    <h1>Merhaba, bu bir test HTML sayfasıdır!</h1>
-    <p>HTML sayfanız başarıyla çalışıyor.</p>
-    <ul>
-        <li>Başlık</li>
-        <li>Paragraf</li>
-        <li>Liste</li>
-    </ul>
+    <nav>
+        <button onclick="showPage('anasayfa')">Ana Sayfa</button>
+        <button onclick="showPage('test')">Test</button>
+    </nav>
+
+    <div id="anasayfa" class="page active">
+        <h1>Merhaba, bu bir test HTML sayfasıdır!</h1>
+        <p>HTML sayfanız başarıyla çalışıyor.</p>
+        <ul>
+            <li>Başlık</li>
+            <li>Paragraf</li>
+            <li>Liste</li>
+        </ul>
+    </div>
+
+    <div id="test" class="page">
+        <h1>Test Sayfası</h1>
+        <p>Bu, test adında eklenmiş ikinci bir sayfadır.</p>
+        <ul>
+            <li>Test 1</li>
+            <li>Test 2</li>
+            <li>Test 3</li>
+        </ul>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(function(page) {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
